@@ -90,9 +90,6 @@ public_users.get('/review/:isbn', function (req, res) {
 
 // -----------------------------------------------------------------------------
 // Task 10-13: Retrieve books using Promise callbacks / async-await with Axios.
-// These functions call the server's own endpoints above and can be invoked
-// from a separate client script (e.g. node client.js) to demonstrate the
-// promise-based / async-await approach requested by the assignment.
 // -----------------------------------------------------------------------------
 
 // Task 10: Get all books – using Promise callbacks (.then/.catch)
@@ -140,6 +137,15 @@ async function getBooksByTitle(title) {
     console.error(`Error fetching books with title '${title}':`, error.message);
   }
 }
+
+// -----------------------------------------------------------------------------
+// Demonstration calls: actually invoking the functions above so the
+// promise-based and async/await Axios implementations produce visible output.
+// -----------------------------------------------------------------------------
+getAllBooksPromise();
+getBookByISBN("1");
+getBooksByAuthor("Chinua Achebe");
+getBooksByTitle("Things Fall Apart");
 
 module.exports.general = public_users;
 module.exports.getAllBooksPromise = getAllBooksPromise;
